@@ -14,6 +14,10 @@
 		1A2B3C0000000000000007CC /* MarkdownEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B3C0000000000000007BB /* MarkdownEngine */; };
 		1A2B3C0000000000000008BB /* MarkdownEngineCodeBlocks in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B3C0000000000000008AA /* MarkdownEngineCodeBlocks */; };
 		1A2B3C0000000000000009BB /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B3C0000000000000009AA /* MarkdownEngineLatex */; };
+		1A2B3C0000000000000011BB /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C0000000000000011AA /* NoteStore.swift */; };
+		1A2B3C0000000000000012BB /* GitHubSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C0000000000000012AA /* GitHubSync.swift */; };
+		1A2B3C0000000000000013BB /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C0000000000000013AA /* NotesView.swift */; };
+		1A2B3C0000000000000014BB /* SyncSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C0000000000000014AA /* SyncSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,11 @@
 		1A2B3C0000000000000005AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A2B3C0000000000000010AA /* DemoDirectives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDirectives.swift; sourceTree = "<group>"; };
 		1A2B3C0000000000000006AA /* MDE.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MDE.icon; sourceTree = "<group>"; };
+		1A2B3C0000000000000011AA /* NoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
+		1A2B3C0000000000000012AA /* GitHubSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSync.swift; sourceTree = "<group>"; };
+		1A2B3C0000000000000013AA /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		1A2B3C0000000000000014AA /* SyncSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSettingsView.swift; sourceTree = "<group>"; };
+		1A2B3C0000000000000016AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +69,22 @@
 				1A2B3C0000000000000004AA /* MarkdownEngineDemoApp.swift */,
 				1A2B3C0000000000000005AA /* ContentView.swift */,
 				1A2B3C0000000000000010AA /* DemoDirectives.swift */,
+				1A2B3C0000000000000015AA /* Sync */,
 				1A2B3C0000000000000006AA /* MDE.icon */,
 			);
 			path = MarkdownEngineDemo;
+			sourceTree = "<group>";
+		};
+		1A2B3C0000000000000015AA /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				1A2B3C0000000000000011AA /* NoteStore.swift */,
+				1A2B3C0000000000000012AA /* GitHubSync.swift */,
+				1A2B3C0000000000000013AA /* NotesView.swift */,
+				1A2B3C0000000000000014AA /* SyncSettingsView.swift */,
+				1A2B3C0000000000000016AA /* README.md */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +167,10 @@
 				1A2B3C0000000000000004BB /* MarkdownEngineDemoApp.swift in Sources */,
 				1A2B3C0000000000000005BB /* ContentView.swift in Sources */,
 				1A2B3C0000000000000010BB /* DemoDirectives.swift in Sources */,
+				1A2B3C0000000000000011BB /* NoteStore.swift in Sources */,
+				1A2B3C0000000000000012BB /* GitHubSync.swift in Sources */,
+				1A2B3C0000000000000013BB /* NotesView.swift in Sources */,
+				1A2B3C0000000000000014BB /* SyncSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

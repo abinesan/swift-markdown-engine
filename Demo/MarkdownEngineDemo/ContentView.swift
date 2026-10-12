@@ -20,7 +20,16 @@ import MarkdownEngineLatex
 #endif
 
 struct ContentView: View {
-    @State private var text: String = sampleMarkdown
+    /// The open note's contents and identity, owned by `NoteStore`. A new
+    /// `documentId` tells the engine it's a different document, so each note
+    /// keeps its own undo stack and scroll position.
+    @Binding var text: String
+    var documentId: String
+
+    init(text: Binding<String>, documentId: String = "default") {
+        _text = text
+        self.documentId = documentId
+    }
 
     // Engine modes, flipped live from the toolbar.
     @State private var isReadOnly = false
@@ -55,6 +64,7 @@ struct ContentView: View {
             text: $text,
             configuration: configuration,
             fontSize: fontSize,
+            documentId: documentId,
             isEditable: !isReadOnly,
             isFocused: $editorIsFocused,
             onCaretRectChange: { completionAnchor = $0 },
@@ -218,10 +228,10 @@ struct ContentView: View {
 
     private func commit(_ item: DirectiveCompletionItem) {
         guard let completion else { return }
-        // `documentId` matches the wrapper's default; the engine ignores a
-        // request aimed at a different document.
+        // `documentId` matches the one handed to the wrapper; the engine
+        // ignores a request aimed at a different document.
         pendingCompletion = DirectiveCompletionRequest(
-            documentId: "default", context: completion, item: item
+            documentId: documentId, context: completion, item: item
         )
         self.completion = nil
     }
@@ -307,7 +317,8 @@ struct ContentView: View {
     }
 }
 
-/// Builds the demo markdown shown when the editor first loads.
+/// Builds the demo markdown seeded as `Welcome.md` the first time the notes
+/// folder is empty.
 ///
 /// Ordered in three parts by WHERE a construct comes from, because that is the
 /// question a reader of this demo actually has:
@@ -320,7 +331,7 @@ struct ContentView: View {
 /// is missing; Part 3's sections turn into literal text when the "Opt-in seams"
 /// toolbar toggle is off. Those two fallbacks are the demo's whole argument:
 /// everything in Part 1 is unaffected by either.
-private var sampleMarkdown: String {
+var sampleMarkdown: String {
     [
         markdownHeader,
         corePartHeader,
